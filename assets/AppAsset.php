@@ -20,12 +20,26 @@ class AppAsset extends AssetBundle
     public $basePath = '@webroot';
     public $baseUrl = '@web';
     public $css = [
-        'css/site.css',
+        'css/main.css',
+        'css/site.css'
     ];
     public $js = [
+        /*'js/main.js'*/
     ];
     public $depends = [
         'yii\web\YiiAsset',
-        'yii\bootstrap5\BootstrapAsset'
+        'yii\bootstrap5\BootstrapAsset',
     ];
+
+    public function init() {
+        if(!YII_ENV_PROD) {
+            foreach($this->js as &$js) {
+                $js = $js . '?time=' . time();
+            }
+            foreach($this->css as &$css) {
+                $css = $css . '?time=' . time();
+            }
+        }
+        parent::init();
+    }
 }
