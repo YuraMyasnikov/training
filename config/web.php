@@ -13,6 +13,10 @@ $config = [
     ],
     'modules' => [
         'admin' => [ 'class' => 'app\modules\admin\Module', ],
+        'catalog' => [ 'class' => 'app\modules\catalog\Module', ],
+        'user' => [ 'class' => 'app\modules\user\Module', ],
+        'basket' => [ 'class' => 'app\modules\basket\Module', ],
+        'order' => [ 'class' => 'app\modules\order\Module', ],
     ],
     'components' => [
         'request' => [
